@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>AHS App schedule editor</title>
+    <meta name="description" content="A schedule editor for the AHS App">
+    <meta name="author" content="Nipun Batra">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="split left">
+        <h2>Schedule Types (click the green button to edit and the red button to delete it): </h2>
+        <ul id="scheduleIDsList" style="list-style: none; padding-left:0"></ul>
+
+        <h4 id="ScheduleFirebaseTitle">Editing:</h4>
+        <input style="color: black;" id="ScheduleTitle" placeholder="Title"><br>
+        <input style="color: black;" id="ScheduleColor" placeholder="Color"><br>
+        <input style="color: black;" type="number" placeholder="Dots" id="ScheduleDots" min="0" max="5"><br>
+        <input style="color: black;" placeholder="Icon URL" id="ScheduleIconURL">
+        <h4>Periods:</h4>
+        <ul style="list-style: none; padding-left:0" id="editPeriodIDs"></ul>
+        <h4>Timestamps:</h4>
+        <ul style="list-style: none; padding-left:0" id="editTimestamps"></ul>
+        <button style="color: black;" id="editAddPeriod">+</button>
+        <button style="color: black;" id="editRemovePeriod">-</button>
+        <br>
+        <br>
+        <button style="color: black;" type="submit" id="editedScheduleType">Submit</button>
+
+        <h2>Add a New Type of Schedule:</h2>
+        <input style="color: black;" placeholder="Firebase Title" id="scheduleFirebaseTitle"><br>
+        <input style="color: black;" placeholder="Title" id="scheduleTitle"><br>
+        <input style="color: black;" placeholder="Color" id="scheduleColor"><br>
+        <input style="color: black;" type="number" placeholder="Dots" id="scheduleDots" min="0" max="5"><br>
+        <input style="color: black;" placeholder="Icon URL" id="scheduleIconURL"><br>
+        <input type="checkbox" id="periods">Periods?
+        <div id="periodDiv" hidden=true>
+            <ul style="list-style: none; padding-left: 0;" id="periodList">
+                <input style="color: black;" placeholder="Timestamp" class="timestamps" id="scheduleTimestamps">
+                <br>
+                <input style="color: black;" placeholder="Period ID" class="periods" id="schedulePeriodIDs">
+            </ul>
+            <input style="color: black;" placeholder="Timestamp" class="timestamps" id="scheduleTimestamps2">
+            <br>
+            <button style="color: black;" id="addPeriod">+</button>
+            <button style="color: black;" id="removePeriod">-</button>
+        </div>
+        <br>
+        <button style="color: black;" type="submit" id="newScheduleID">Submit</button>
+    </div>
+
+    <div class="split right">
+        <h2>Week Types (click the green button to edit and the red button to delete it):</h2>
+        <ul id="weeksList"></ul>
+
+        <h4 id="WeekFirebaseTitle">Editing:</h4>
+        <input style="color: black;" id="WeekTitle" placeholder="Title">
+        <ul style="list-style: none; padding-left:0" id="editScheduleIDs"></ul>
+        <button style="color: black;" type="submit" id="editedWeek">Submit</button>
+
+        <h2>Add A New Type of Week:</h2>
+        <input style="color: black;" id="newWeekFirebaseTitle" placeholder="Firebase Title"><br>
+        <input style="color: black;" placeholder="Title" id="weekTitle"><br>
+        <h4>Schedule IDs:</h4>
+        <ul style="list-style: none; padding-left:0" id="addScheduleIDs"></ul>
+        <button style="color: black;" type="submit" id="newWeekID">Submit</button>
+
+        <h2>Change a Week ID: </h2>
+        <input style="color: black;" value="" id="weekIdInput">
+        <button style="color: black;" type="submit" id="changedWeekID">Submit</button>
+        <ol id="weekIDsList" start="0"></ol>
+    </div>
+
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>

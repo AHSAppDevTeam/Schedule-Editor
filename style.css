@@ -1,0 +1,28 @@
+* {
+    font-family: 'pt-root', Helvetica, Roboto, Arial, sans-serif;
+    color: aliceblue;
+}
+
+body {
+    background-color: hsl(220deg,20%,8%);
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left { 
+    position: absolute;
+    left: 2%;
+}
+  
+  /* Control the right side */
+.right {
+    right: -5%;
+}
