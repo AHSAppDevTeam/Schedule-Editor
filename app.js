@@ -195,7 +195,6 @@ function renderWeeks() {
         if (snapshot.exists()) {
             for (var item in snapshot.val()) {
                 if (snapshot.val().hasOwnProperty(item)) {
-                    console.log();
                     let li = document.createTextNode(" " + item);
                     let input = document.createElement("input");
                     let deleteInput = document.createElement("input");
@@ -255,7 +254,6 @@ for (let i = 0; i < 8; i++) {
 //adding new week type
 document.getElementById("newWeekID").addEventListener("click", function () {
     var FT = document.getElementById("newWeekFirebaseTitle").value;
-    console.log(FT);
     if (FT == "") {
         alert("Please add a Firebase Title");
         return;
