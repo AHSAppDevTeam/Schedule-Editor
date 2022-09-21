@@ -32,9 +32,7 @@ document.getElementById("googleSignin").addEventListener("click", function () {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         var token = result.credential.accessToken;
         var user = result.user;
-        console.log(result)
-        console.log(credential)
-        console.log(user)
+        console.log(auth.currentUser)
     }).catch(function (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -558,8 +556,11 @@ function editDay(week, day, month, year, date) {
 document.getElementById("editedDay").addEventListener("click", function () {
     var result = document.getElementById("dayType").value;
     console.log(result);
-    // set(child(db, 'weeks/' + edtWeek + '/scheduleIDs/' + edtDay), result).then(alert("changed " + edtStringDate + " to " + result));
-
+    if (auth.currentUser) {
+        set(child(db, 'weeks/' + edtWeek + '/scheduleIDs/' + edtDay), result).then(alert("changed " + edtStringDate + " to " + result));
+    } else {
+        alert("please sign in");
+    }
     // /weeks/w1/scheduleIDs/1
 });
 
