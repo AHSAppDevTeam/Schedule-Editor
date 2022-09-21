@@ -27,13 +27,13 @@ const db = ref(getDatabase(app));
 
 document.getElementById("googleSignin").addEventListener("click", function () {
     console.log("signin clicked")
-    getAuth(app).signInWithPopup(provider).then(function (result) {
+    signInWithPopup(auth, provider).then(function (result) {
         console.log("signin clicked 2")
         const credential = GoogleAuthProvider.credentialFromResult(result);
         var token = result.credential.accessToken;
         var user = result.user;
         console.log(result)
-        console.log(token)
+        console.log(credential)
         console.log(user)
     }).catch(function (error) {
         var errorCode = error.code;
