@@ -4,7 +4,7 @@
 
 // Initialize Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js';
+import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js';
 import { getDatabase, ref, get, child, set, remove } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
 const config = {
     apiKey: "AIzaSyDweQSkpqQSGP42qBgoiSm5VAhDoe9dJA8",
@@ -25,11 +25,13 @@ const auth = getAuth(app);
 const db = ref(getDatabase(app));
 
 document.getElementById("googleSignin").addEventListener("click", function () {
+    console.log("signin clicked")
     signInWithPopup(auth, provider).then(function (result) {
+        console.log("signin clicked 2")
         const credential = GoogleAuthProvider.credentialFromResult(result);
         var token = result.credential.accessToken;
         var user = result.user;
-
+        console.log(result)
         console.log(token)
         console.log(user)
     }).catch(function (error) {
@@ -42,7 +44,8 @@ document.getElementById("googleSignin").addEventListener("click", function () {
 });
 
 document.getElementById("googleSignout").addEventListener("click", function () {
-    auth().signOut()
+    console.log("signout clicked")
+    signOut(auth)
         .then(function () {
             console.log('Signout Succesfull')
         }, function (error) {
