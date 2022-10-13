@@ -22,7 +22,7 @@ provider.setCustomParameters({
     'hd': 'ausd.net'
 })
 const auth = getAuth(app);
-console.log(auth);
+// console.log(auth);
 const db = ref(getDatabase(app));
 
 document.getElementById("googleSignin").addEventListener("click", function () {
@@ -46,7 +46,8 @@ document.getElementById("googleSignout").addEventListener("click", function () {
     console.log("signout clicked")
     signOut(auth)
         .then(function () {
-            console.log('Signout Succesfull')
+            console.log('signout successful')
+            alert('signout successful');
         }, function (error) {
             console.log('Signout Failed')
         });
